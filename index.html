@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Block Chain</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--CSS-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!--Text Styles-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">	
+
+
+</head>
+<body onload="setvalues()" >
+
+	<nav class="navbar navbar-expand-sm navbar-dark bgcl fixed-top">
+  		<div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand mr-auto ">Block Chain</div>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item active"><a class="nav-link" href="#hash">Hash</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="#block">Block</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="#">Block Chain</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+	</nav>
+
+	<!-- Hash -->
+		
+		<span id="hash"></span>
+		<div  class="container" style="padding-top: 70px;">
+			<div >
+				<h1 >SHA 256</h1>
+			</div>
+			<div class="jumbotron">
+				<div class="row">
+<<<<<<< HEAD
+					<div class="col-sm-6">
+						<h4 style="text-align: left;">Data:</h4>
+=======
+					<div class="col-sm-2">
+						<h4 style="text-align: center;">Data:</h4>
+					</div>
+					<div class="col-sm-10">
+>>>>>>> c496aec74a56ac13a8be72d794e2ccb182360a9f
+						<div class="form-group">
+							<textarea class="form-control" id="input_text" oninput ="sha256(this.value)" rows="5" id="comment"></textarea>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<h4 style="text-align: left;">Hash:</h4>
+						<div class="form-group">
+							<textarea class="form-control" disabled id="ans" rows="5" id="comment"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div >
+				<h1>SHA 512</h1>
+			</div>
+			<div class="jumbotron">
+				<div class="row">
+<<<<<<< HEAD
+					<div class="col-sm-6">
+						<h4 style="text-align: left;">Data:</h4>
+						<div class="form-group">
+							<textarea class="form-control" id="input_text" oninput ="SHA512(this.value)" rows="5" id="comment"></textarea>
+						</div>
+=======
+					<div class="col-sm-2">
+						<h4 style="text-align: center;">Hash:</h4>
+>>>>>>> c496aec74a56ac13a8be72d794e2ccb182360a9f
+					</div>
+					<div class="col-sm-6">
+						<h4 style="text-align: left;">Hash:</h4>
+						<div class="form-group">
+							<textarea class="form-control" disabled id="ans1" rows="5"></textarea>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<span id="block"></span>
+
+
+
+
+		<div class="container" style="padding-top: 70px;">
+			<div>
+				<h1>BLOCK</h1>
+			</div>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-sm-2">
+						<h4 style="text-align: right;"><label for="block_num">Block No:</label></h4>
+					</div>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<input class="form-control" type="number" pattern="[0-9]" name="block_num" id="block_num">
+					
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<h4 style="text-align: right;"><label for="nonce">Nonce:</label></h4>
+					</div>
+					<div class="col-sm-10">
+						<div class="form-group">
+							<input class="form-control" type="number" name="nonce" id="nonce" pattern="[0-9]">
+					
+						</div>
+					</div>
+				</div>
+				<div id="flag">
+					
+				</div>
+				<div id="flag1">
+					
+				</div>
+
+			</div>
+		</div>
+			
+
+
+		<script src="./js/sha512.js" type="text/javascript"></script>
+		<script type="text/javascript">
+
+			var i;
+
+			function setvalues()
+			{
+				i = 0;
+				create_block();
+			}
+
+			function create_block()
+			{ 
+				i++;
+				var fnameid = "firstName"+i;
+				var lnameid = "lastName"+i;
+				var amountid = "amount"+i;
+				var hashid = "res"+i;
+				
+				var head = document.createElement('div');
+				head.innerHTML = '<div class="row"><div class="col-12"><h1 style="text-align:center;">Transaction</h1></div></div>';
+				document.getElementById('flag').appendChild(head);
+				var middle = document.createElement('div');
+				
+				middle.innerHTML = '<div class="row"><div class="col-sm-6"><h4 style="text-align: left;"><label for="'+fnameid+'">First Name:</label></h4><div class="form-group"><input class="form-control" oninput="computeBlock('+"'"+fnameid+"'"+','+"'"+lnameid+"'"+','+"'"+amountid+"'"+')" type="text" name="firstName" id="'+fnameid+'"></div><h4 style="text-align: left;"><label for="'+lnameid+'">Last Name:</label></h4><div class="form-group"><input class="form-control" oninput="computeBlock('+"'"+fnameid+"'"+','+"'"+lnameid+"'"+','+"'"+amountid+"'"+')" type="text" name="lastName" id="'+lnameid+'"></div><h4 style="text-align: left;"><label for="'+amountid+'">Amount</label></h4><div class="form-group"><input class="form-control" oninput="computeBlock('+"'"+fnameid+"'"+','+"'"+lnameid+"'"+','+"'"+amountid+"'"+')" type="text" name="amount" id="'+amountid+'"></div></div><div class="col-sm-6"><h4 style="text-align: left;">Hash:</h4><textarea class="form-control" disabled id="'+hashid+'"  rows="10"></textarea></div></div><hr>';
+
+				document.getElementById('flag').appendChild(middle);
+				var bt = document.createElement('div');
+				bt.innerHTML ='<div class="row"><div class="col-sm-3"><button id="bt" onclick = "hide_button(this,'+"'"+fnameid+"'"+","+"'"+lnameid+"'"+","+"'"+amountid+"'"+')">Add new</button></div><div class="col-sm-3"><button id="bt_finish" type="submit" onclick="finish_transaction('+"'"+fnameid+"'"+","+"'"+lnameid+"'"+","+"'"+amountid+"'"+')" >Finish</button></div></div>';
+				document.getElementById('flag').appendChild(bt);
+				// var endbtn = document.createElement('button');
+				// endbtn.innerHTML = "Finish";
+				// last.setAttribute('id','btn1');
+				// last.setAttribute('onclick','')
+				// document.getElementById('flag').appendChild(endbtn);
+
+				
+			}
+
+			function hide_button(current,fn,ln,am)
+			{
+				
+				document.getElementById(current.id).style.display = "none";
+				document.getElementById('bt_finish').style.display = "none";
+				document.getElementById(current.id).removeAttribute('id','btn');
+				document.getElementById('bt_finish').removeAttribute('id','btn');
+				document.getElementById(fn).setAttribute("disabled","");
+				document.getElementById(ln).setAttribute("disabled","");
+				document.getElementById(am).setAttribute("disabled","");
+			
+				// document.getElementById('btn1').style.display = "none";
+				create_block();
+			}
+
+
+
+			function finish_transaction(fn,ln,am)
+			{
+				var total_hash = document.createElement('div');
+				document.getElementById('bt_finish').style.display = "none";
+				document.getElementById('bt').style.display = "none";
+				document.getElementById(fn).setAttribute("disabled","");
+				document.getElementById(ln).setAttribute("disabled","");
+				document.getElementById(am).setAttribute("disabled","");
+				document.getElementById('block_num').setAttribute("disabled","");
+				document.getElementById('nonce').setAttribute("disabled","");
+				total_hash.innerHTML = "<div class='row'><div class='col-12'><h2>Final Hash</h2><div class='form-group'><textarea class='form-control' disabled id='ans_finish' rows='5'></textarea></div></div></div><div class='row'></div>";
+				document.getElementById('flag').appendChild(total_hash);
+
+				var j;
+				final = document.getElementById('block_num').value+document.getElementById('nonce').value;
+				for(j=1;j<=i;j++)
+				{
+					check_id = "res"+j;
+					final+=document.getElementById(check_id).value;
+				}
+				sha256_final_block(final);
+				
+			}
+
+			async function sha256(message) {
+
+				// message = document.getElementById("input_text").value;
+			    // encode as UTF-8
+			    const msgBuffer = new TextEncoder('utf-8').encode(message);                    
+
+			    // hash the message
+			    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+			    // convert ArrayBuffer to Array
+			    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+			    // convert bytes to hex string                  
+			    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+			  	document.getElementById("ans").value = hashHex;	
+
+			}
+
+			function computeBlock(fn,ln,am)
+			{
+				
+					var val = document.getElementById(fn).value+document.getElementById(ln).value+document.getElementById(am).value;	
+					sha256_block(val);
+				
+				
+				// +document.getElementById(preview.lastName).value+document.getElementById(preview.amount).value;
+				
+				
+			}
+
+			async function sha256_block(message)
+			{
+				const msgBuffer = new TextEncoder('utf-8').encode(message);                    
+
+			    // hash the message
+			    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+			    // convert ArrayBuffer to Array
+			    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+			    // convert bytes to hex string                  
+			    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+
+			    document.getElementById('res'+i).value = hashHex;
+			   
+			}
+
+			async function sha256_final_block(message)
+			{
+				const msgBuffer = new TextEncoder('utf-8').encode(message);                    
+
+			    // hash the message
+			    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+			    // convert ArrayBuffer to Array
+			    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+			    // convert bytes to hex string                  
+			    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+
+			    document.getElementById('ans_finish').value = hashHex;
+			   
+			}
+		</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="./js/scripts.js"></script>
+</body>
+</html>
